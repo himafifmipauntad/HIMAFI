@@ -76,9 +76,9 @@ margin-top:40px;
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
-padding:20px;
+padding:15px;
 }
 
 .kajian{
@@ -90,9 +90,10 @@ border:1px solid var(--gradient);
 }
 
 .breadcrumb{
+padding: 0 15px;
 font-size:14px;
 margin:10px auto;
-max-width:900px;
+max-width:1000px;
 }
 
 .breadcrumb a{
@@ -150,6 +151,11 @@ right:35px;
 width:105px;
 }
 
+img{
+max-width:100%;
+height:auto;
+}
+
 @media (max-width:600px){
 
 h1{
@@ -193,6 +199,42 @@ border-right:none;
 nav a:hover{
 background:rgba(255,255,255,0.2);
 color:#ffd700;
+}
+
+@media (max-width:768px){
+
+header h1{
+font-size:18px;
+}
+
+header p{
+font-size:12px;
+}
+
+.logo-kiri{
+width:30px;
+left:10px;
+}
+
+.logo-kanan{
+width:40px;
+right:10px;
+}
+
+.menu-toggle{
+font-size:22px;
+top:10px;
+left:10px;
+}
+
+.divisi, .kajian{
+padding:12px;
+}
+
+.container{
+padding:10px;
+}
+
 }
 
 </style>
