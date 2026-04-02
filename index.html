@@ -66,9 +66,9 @@ margin-top:40px;
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
-padding:20px;
+padding:15px;
 }
 
 .artikel{
@@ -99,14 +99,20 @@ right:35px;
 width:105px;
 }
 
+img{
+max-width:100%;
+height:auto;
+}
+
 .menu-toggle{
 position:absolute;
 left:15px;
-top:215px;
+top:225px;
 font-size:26px;
 cursor:pointer;
 color:white;
 z-index:1000;
+transform:translateY(-50%);
 }
 
 #menu{
@@ -173,6 +179,49 @@ border-right:none;
 nav a:hover{
 background:rgba(255,255,255,0.2);
 color:#ffd700;
+}
+
+@media (max-width:768px){
+
+header h1{
+font-size:18px;
+}
+
+header p{
+font-size:12px;
+}
+
+.logo-kiri{
+width:30px;
+left:10px;
+}
+
+.logo-kanan{
+width:40px;
+right:10px;
+}
+
+.menu-toggle{
+font-size:22px;
+top:10px;
+left:10px;
+}
+
+.divisi, .kajian{
+padding:12px;
+}
+
+.container{
+padding:10px;
+}
+
+.menu-toggle{
+top:160px;
+left:15px;
+transform:translateY(-50%);
+}
+
+
 }
 
 
