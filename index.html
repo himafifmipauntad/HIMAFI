@@ -51,19 +51,35 @@ z-index:-1;
 
 header{
 position:relative;
-background:var(--gradient);
 color:white;
 text-align:center;
-padding:40px;
-box-shadow:0 2px 6px rgba(0,0,0,0.3);
+padding:40px 10px;
+
+/* gambar */
+background:url("img/header_footer.png");
+background-size:cover;
+background-repeat:no-repeat;
+
+/* INI KUNCINYA */
+background-position: top center;
+background-size: 108% auto;  /* zoom dikit tapi gak brutal */
+
+min-height:220px;
+box-shadow:0 3px 10px rgba(0,0,0,0.3);
 }
 
 footer{
-background:var(--primary);
-color:white;
 text-align:center;
-padding:25px;
-font-size:14px;
+padding:30px 10px;
+color:white;
+
+background:
+url("img/header_footer.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
 margin-top:40px;
 }
 
@@ -74,15 +90,23 @@ padding:15px;
 }
 
 .artikel{
-background:white;
+background:url("img/header_footer.png");
 padding:15px;
 margin-bottom:15px;
 border-radius:6px;
 border-left:5px solid var(--secondary);
 }
 
+.artikel p{
+color:rgba(255,255,255,0.85);
+}
+
 .artikel a{
-color:var(--primary);
+color:white;
+}
+
+.artikel a{
+color:white;
 font-weight:bold;
 text-decoration:none;
 }
@@ -109,7 +133,7 @@ height:auto;
 .menu-toggle{
 position:absolute;
 left:15px;
-top:225px;
+top:280px;
 font-size:26px;
 cursor:pointer;
 color:white;
@@ -120,9 +144,9 @@ transform:translateY(-50%);
 #menu{
 display:none;
 flex-direction:column;
-background:var(--gradient);
+background:url("img/header_footer.png");;
 position:absolute;
-top:215px;
+top:260px;
 left:40px;
 width:200px;
 border-radius:5px;
@@ -135,7 +159,8 @@ border-bottom:1px solid rgba(255,255,255,0.2);
 }
 
 #menu a:hover{
-background:#2e4f7a;
+background:gray;
+opacity:0.8;
 }
 
 @media (max-width:600px){
@@ -204,9 +229,10 @@ right:10px;
 }
 
 .menu-toggle{
+top:120px;
+left:15px;
+transform:translateY(-50%);
 font-size:22px;
-top:10px;
-left:10px;
 }
 
 .divisi, .kajian{
@@ -217,17 +243,33 @@ padding:12px;
 padding:10px;
 }
 
-.menu-toggle{
-top:160px;
-left:15px;
-transform:translateY(-50%);
-}
-
 #menu{
-top:205px;
+top:170px;
 left:40px;
 transform:translateY(-50%);
 width:150px;
+}
+
+@media (max-width:768px){
+
+header{
+min-height:160px;
+padding:30px 10px;
+}
+
+header h1{
+font-size:18px;
+}
+
+header p{
+font-size:12px;
+}
+
+footer{
+padding:20px 10px;
+font-size:13px;
+}
+
 }
 
 }
@@ -270,7 +312,7 @@ Universitas Tadulako
 
 <div class="artikel">
 
-<a href="proker_akpem1.html">
+<a href="kajian1.html">
 Kebakaran di Parigi Moutong
 </a>
 
