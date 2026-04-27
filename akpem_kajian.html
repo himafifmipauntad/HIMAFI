@@ -18,20 +18,22 @@
 :root{
 --primary:#1f2f8f;
 --secondary:#19c2c2;
---gradient:linear-gradient(to bottom,#1f2f8f,#19c2c2);
---hover:#16236b;
 }
 
+/* BODY */
 body{
 font-family:Arial;
-max-width:auto;
-width:auto;
-margin:auto;
+margin:0;
 line-height:1.6;
 background:#f5f5f5;
+
+display:flex;
+flex-direction:column;
+min-height:100vh;
 position:relative;
 }
 
+/* LOGO BURAM */
 body::before{
 content:"";
 position:fixed;
@@ -39,23 +41,21 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-
-background-image:url("img/LOGO HIMAFI NO BG.png");
-background-repeat:no-repeat;
-background-position:center;
+background:url("img/LOGO HIMAFI NO BG.png") center no-repeat;
 background-size:40%;
-
-opacity:0.2;
+opacity:0.08;
 z-index:-1;
 }
 
+/* HEADER */
 header{
 position:relative;
-background:var(--gradient);
 color:white;
 text-align:center;
-padding:15px 10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.3);
+padding:30px 10px;
+background:url("img/header_footer.png");
+background-size:cover;
+background-position:top center;
 }
 
 header h1{
@@ -68,41 +68,27 @@ margin:2px 0 0 0;
 font-size:13px;
 }
 
-footer{
-text-align:center;
-padding:25px;
-color:white;
-font-size:14px;
-background:var(--primary);
-margin-top:40px;
+/* LOGO */
+.logo-kiri{
+position:absolute;
+top:25px;
+left:20px;
+width:60px;
 }
 
-.container{
+.logo-kanan{
+position:absolute;
+top:25px;
+right:20px;
+width:80px;
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+padding:10px 20px;
+font-size:14px;
 max-width:1000px;
 margin:auto;
-padding:15px;
-}
-
-.kajian{
-background:white;
-padding:15px;
-margin-bottom:15px;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-.kajian a{
-font-size:20px;
-text-decoration:none;
-color:var(--primary);
-font-weight:bold;
-}
-
-.breadcrumb{
-padding: 0 15px;
-font-size:14px;
-margin:10px auto;
-max-width:1000px;
 }
 
 .breadcrumb a{
@@ -111,74 +97,43 @@ color:var(--primary);
 font-weight:bold;
 }
 
-.breadcrumb a:hover{
-text-decoration:underline;
+/* CONTAINER */
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+flex:1;
 }
 
-.logo-kiri{
-position:absolute;
-top:30px;
-left:35px;
-width:70px;
+/* CARD KAJIAN */
+.kajian{
+background:url("img/header_footer.png");
+background-size:cover;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
-.logo-kanan{
-position:absolute;
-top:30px;
-right:35px;
-width:105px;
-}
-
-img{
-max-width:100%;
-height:auto;
-}
-
-@media (max-width:600px){
-
-h1{
-font-size:20px;
-}
-
-#map{
-height:250px;
-}
-
-nav a{
-font-size:14px;
-padding:8px 10px;
-}
-
-}
-
-nav{
-background: linear-gradient(to bottom, #2e4f7a, #1a2a44);
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-margin-bottom:20px;
-}
-
-nav a{
-color:white;
+/* LINK */
+.kajian a{
+font-size:18px;
 text-decoration:none;
+color:white;
 font-weight:bold;
-font-size:16px;
-
-padding:10px 18px;
-
-border-right:1px solid rgba(255,255,255,0.5);
 }
 
-nav a:last-child{
-border-right:none;
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:white;
+background:url("img/header_footer.png");
+background-size:cover;
+margin-top:auto;
 }
 
-nav a:hover{
-background:rgba(255,255,255,0.2);
-color:#ffd700;
-}
-
+/* RESPONSIVE */
 @media (max-width:768px){
 
 header h1{
@@ -199,18 +154,12 @@ width:40px;
 right:10px;
 }
 
-.menu-toggle{
-font-size:22px;
-top:10px;
-left:10px;
-}
-
-.divisi, .kajian{
-padding:12px;
-}
-
 .container{
 padding:10px;
+}
+
+.kajian{
+padding:12px;
 }
 
 }
@@ -224,6 +173,7 @@ padding:10px;
 <header>
 <img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
 <img src="img/logo himafi outline.png" class="logo-kanan">
+
 <h1>HIMAFI FMIPA UNTAD</h1>
 <p>
 Himpunan Mahasiswa Fisika<br>
@@ -233,9 +183,9 @@ Universitas Tadulako
 </header>
 
 <div class="breadcrumb">
-<a href="index.html">Beranda</a> > 
-<a href="proker.html">Program Kerja</a> >
-<a href="proker_akpem.html">AKPEM</a> > Kajian
+<a href="index.html">Beranda</a> /
+<a href="proker.html">Program Kerja</a> /
+<a href="proker_akpem.html">AKPEM</a> / Kajian
 </div>
 
 <div class="container">
@@ -260,9 +210,7 @@ Kebakaran di Parigi Moutong
 </a>
 </div>
 
-
 </div>
-</script>
 
 <footer>
 <p>© 2026 HIMAFI FMIPA Universitas Tadulako</p>
