@@ -23,15 +23,17 @@
 }
 
 body{
+margin:0;
 font-family:Arial;
-max-width:auto;
-width:auto;
-margin:auto;
-line-height:1.6;
 background:#f5f5f5;
+
+min-height:100vh;
+display:flex;
+flex-direction:column;
 position:relative;
 }
 
+/* LOGO BURAM */
 body::before{
 content:"";
 position:fixed;
@@ -39,58 +41,38 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-
-background-image:url("img/LOGO HIMAFI NO BG.png");
-background-repeat:no-repeat;
-background-position:center;
+background:url("img/LOGO HIMAFI NO BG.png") center no-repeat;
 background-size:40%;
-
-opacity:0.2;
+opacity:0.08;
 z-index:-1;
 }
 
+/* HEADER */
 header{
 position:relative;
-background:var(--gradient);
 color:white;
 text-align:center;
-padding:15px 10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.3);
+padding:30px 10px;
+background:url("img/header_footer.png");
+background-size:cover;
+background-position:top center;
 }
 
-header h1{
-margin:0;
-font-size:22px;
+.logo-kiri{
+position:absolute;
+top:25px;
+left:20px;
+width:60px;
 }
 
-header p{
-margin:2px 0 0 0;
-font-size:13px;
+.logo-kanan{
+position:absolute;
+top:25px;
+right:20px;
+width:80px;
 }
 
-footer{
-text-align:center;
-padding:25px;
-color:white;
-font-size:14px;
-background:var(--primary);
-margin-top:40px;
-}
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:15px;
-}
-
-.kajian{
-background:white;
-padding:15px;
-margin-bottom:15px;
-border-radius:5px;
-border:1px solid var(--gradient);
-}
-
+/* BREADCRUMB */
 .breadcrumb{
 padding: 0 15px;
 font-size:14px;
@@ -108,139 +90,65 @@ font-weight:bold;
 text-decoration:underline;
 }
 
+/* CONTAINER */
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+flex:1;
+}
+
+/* CARD DIVISI */
 .divisi{
 display:flex;
 align-items:center;
-gap:12px;
-background:white;
+gap:15px;
 padding:15px;
 margin-bottom:15px;
-border-radius:5px;
-border:1px solid var(--gradient);
+border-radius:10px;
+
+background:url("img/header_footer.png");
+background-size:cover;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
-.divisi img{
-width:45px;
-height:45px;
+/* LOGO LINGKARAN */
+.logo-wrap{
+width:55px;
+height:55px;
+background:black;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+border:2px solid white;
+}
+
+.logo-wrap img{
+width:30px;
+height:30px;
 object-fit:contain;
 }
 
+/* TEXT */
 .divisi a{
-font-size:20px;
 text-decoration:none;
-color:var(--primary);
-font-weight:bold;
-}
-
-.kajian a{
-font-size:20px;
-text-decoration:none;
-color:var(--primary);
-font-weight:bold;
-}
-
-.logo-kiri{
-position:absolute;
-top:30px;
-left:35px;
-width:70px;
-}
-
-.logo-kanan{
-position:absolute;
-top:30px;
-right:35px;
-width:105px;
-}
-
-img{
-max-width:100%;
-height:auto;
-}
-
-@media (max-width:600px){
-
-h1{
-font-size:20px;
-}
-
-#map{
-height:250px;
-}
-
-nav a{
-font-size:14px;
-padding:8px 10px;
-}
-
-}
-
-nav{
-background: linear-gradient(to bottom, #2e4f7a, #1a2a44);
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-margin-bottom:20px;
-}
-
-nav a{
 color:white;
-text-decoration:none;
 font-weight:bold;
 font-size:16px;
-
-padding:10px 18px;
-
-border-right:1px solid rgba(255,255,255,0.5);
 }
 
-nav a:last-child{
-border-right:none;
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:white;
+background:url("img/header_footer.png");
+background-size:cover;
+margin-top:auto;
 }
-
-nav a:hover{
-background:rgba(255,255,255,0.2);
-color:#ffd700;
-}
-
-@media (max-width:768px){
-
-header h1{
-font-size:18px;
-}
-
-header p{
-font-size:12px;
-}
-
-.logo-kiri{
-width:30px;
-left:10px;
-}
-
-.logo-kanan{
-width:40px;
-right:10px;
-}
-
-.menu-toggle{
-font-size:22px;
-top:10px;
-left:10px;
-}
-
-.divisi, .kajian{
-padding:12px;
-}
-
-.container{
-padding:10px;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
@@ -248,54 +156,60 @@ padding:10px;
 <header>
 <img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
 <img src="img/logo himafi outline.png" class="logo-kanan">
-<h1>HIMAFI FMIPA UNTAD</h1>
-<p>
-Himpunan Mahasiswa Fisika<br>
-Fakultas Matematika dan Ilmu Pengetahuan Alam<br>
-Universitas Tadulako
-</p>
+
+<h1>Program Kerja HIMAFI</h1>
+<p>Himpunan Mahasiswa Fisika FMIPA Universitas Tadulako</p>
 </header>
 
 <div class="breadcrumb">
-<a href="index.html">Beranda</a> > Program Kerja
+<a href="index.html">Beranda</a> / Program Kerja
 </div>
 
 <div class="container">
 
-<h2>Program Kerja</h2>
-
 <div class="divisi">
+<div class="logo-wrap">
 <img src="img/akpem.png">
-<a href="proker_akpem.html">Divisi Akademik dan Pengabdian Masyarakat (AKPEM)</a>
+</div>
+<a href="proker_akpem.html">Divisi Akademik & Pengabdian Masyarakat (AKPEM)</a>
 </div>
 
 <div class="divisi">
+<div class="logo-wrap">
 <img src="img/senior.png">
-<a href="proker_senior.html">Divisi SENIOR</a>
+</div>
+<a href="proker_senior.html">Divisi Seni & Olahraga</a>
 </div>
 
 <div class="divisi">
+<div class="logo-wrap">
 <img src="img/pok.png">
-<a href="proker_pok.html">Divisi POK</a>
+</div>
+<a href="proker_pok.html">Divisi Pengembangan Organisasi & Kaderisasi</a>
 </div>
 
 <div class="divisi">
+<div class="logo-wrap">
 <img src="img/keshan.png">
-<a href="proker_keshan.html">Divisi KESHAN</a>
+</div>
+<a href="proker_keshan.html">Divisi Kesekretariatan & Kewirausahaan</a>
 </div>
 
 <div class="divisi">
+<div class="logo-wrap">
 <img src="img/kerohanian.png">
+</div>
 <a href="proker_kerohanian.html">Divisi Kerohanian</a>
 </div>
 
 <div class="divisi">
+<div class="logo-wrap">
 <img src="img/ikr.png">
-<a href="proker_ikr.html">Divisi IKR</a>
+</div>
+<a href="proker_ikr.html">Divisi Informasi Komunikasi & Relasi</a>
 </div>
 
 </div>
-</script>
 
 <footer>
 <p>© 2026 HIMAFI FMIPA Universitas Tadulako</p>
