@@ -22,40 +22,151 @@
 }
 
 body{
+margin:0;
 font-family:Arial;
-text-align:center;
-padding:100px;
+background:#f5f5f5;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+position:relative;
 }
 
-h1{
-color:var(--primary);
+/* LOGO BURAM */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("img/LOGO HIMAFI NO BG.png") center no-repeat;
+background-size:40%;
+opacity:0.08;
+z-index:-1;
 }
 
-p{
-color:#555;
-}
-
-a{
-display:inline-block;
-margin-top:30px;
-padding:10px 20px;
-background:var(--gradient);
+/* HEADER */
+header{
+position:relative;
 color:white;
-text-decoration:none;
-border-radius:6px;
+text-align:center;
+padding:30px 10px;
+background:url("img/header_footer.png");
+background-size:cover;
+background-position:top center;
 }
 
+.logo-kiri{
+position:absolute;
+top:25px;
+left:20px;
+width:60px;
+}
+
+.logo-kanan{
+position:absolute;
+top:25px;
+right:20px;
+width:80px;
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+padding: 0 15px;
+font-size:14px;
+margin:10px auto;
+max-width:1000px;
+}
+
+.breadcrumb a{
+text-decoration:none;
+color:var(--primary);
+font-weight:bold;
+}
+
+.breadcrumb a:hover{
+text-decoration:underline;
+}
+
+/* CONTAINER */
+.container{
+flex:1;
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+/* CARD */
+.kajian{
+background:url("img/header_footer.png");
+background-size:cover;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* LINK */
+.kajian a{
+font-size:18px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:white;
+background:url("img/header_footer.png");
+background-size:cover;
+margin-top:auto;
+}
 </style>
 
 </head>
 
 <body>
 
-<h1>Divisi KESHAN</h1>
+<header>
+<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
+<img src="img/logo himafi outline.png" class="logo-kanan">
 
-<p>Halaman ini sedang dalam tahap pengembangan.</p>
+<h1>HIMAFI FMIPA UNTAD</h1>
+<p>
+Himpunan Mahasiswa Fisika<br>
+Fakultas Matematika dan Ilmu Pengetahuan Alam<br>
+Universitas Tadulako
+</p>
+</header>
 
-<a href="proker.html">← Kembali ke Program Kerja</a>
+<div class="breadcrumb">
+<a href="index.html">Beranda</a> /
+<a href="proker.html">Program Kerja</a> / KESHAN
+</div>
+
+<div class="container">
+
+<h2>Program Kerja Divisi KESHAN</h2>
+
+<div class="kajian">
+<a href="#">-</a>
+</div>
+
+<div class="kajian">
+<a href="#">-</a>
+</div>
+
+<div class="kajian">
+<a href="#">-</a>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 HIMAFI FMIPA Universitas Tadulako</p>
+</footer>
 
 </body>
 </html>
