@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Soal AKPEM</title>
+
+<style>
+:root{
+--primary:#1f2f8f;
+--secondary:#19c2c2;
+}
+
+/* BODY */
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+position:relative;
+}
+
+/* LOGO BURAM */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("img/LOGO HIMAFI NO BG.png") center no-repeat;
+background-size:40%;
+opacity:0.08;
+z-index:-1;
+}
+
+/* HEADER */
+header{
+position:relative;
+color:white;
+text-align:center;
+padding:30px 10px;
+background:url("img/header_footer.png");
+background-size:cover;
+}
+
+/* LOGO */
+.logo-kiri{
+position:absolute;
+top:25px;
+left:20px;
+width:60px;
+}
+.logo-kanan{
+position:absolute;
+top:25px;
+right:20px;
+width:80px;
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+padding:10px 20px;
+font-size:14px;
+max-width:1000px;
+margin:auto;
+}
+.breadcrumb a{
+text-decoration:none;
+color:var(--primary);
+font-weight:bold;
+}
+
+/* CONTAINER */
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px 25px;
+flex:1;
+}
+
+/* LOGIN BOX */
+.login-box{
+background:white;
+padding:30px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.login-box input{
+padding:10px;
+width:200px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.login-box button{
+padding:10px 20px;
+background:var(--primary);
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.login-box button:hover{
+background:#16236b;
+}
+
+/* FILE CARD */
+.file-card{
+background:url("img/header_footer.png");
+background-size:cover;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.file-card a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:white;
+background:url("img/header_footer.png");
+margin-top:auto;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+.logo-kiri{width:30px;}
+.logo-kanan{width:40px;}
+.container{padding:15px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
+<img src="img/logo himafi outline.png" class="logo-kanan">
+
+<h1>Bank Soal AKPEM</h1>
+<p>Divisi Akademik dan Pengabdian Masyarakat</p>
+</header>
+
+<div class="breadcrumb">
+<a href="index.html">Beranda</a> /
+<a href="proker.html">Program Kerja</a> /
+<a href="proker_akpem.html">AKPEM</a> /
+Bank Soal
+</div>
+
+<div class="container">
+
+<!-- LOGIN -->
+<div id="loginBox" class="login-box">
+<h2>Akses Bank Soal</h2>
+<p>Masukkan kode akses yang diberikan</p>
+
+<input type="password" id="password" placeholder="Kode akses">
+<br><br>
+<button onclick="cekLogin()">Masuk</button>
+</div>
+
+<!-- KONTEN BANK SOAL -->
+<div id="konten" style="display:none;">
+<div id="banksoal-container"></div>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 HIMAFI FMIPA Universitas Tadulako</p>
+</footer>
+
+<script>
+
+// 🔒 PASSWORD GLOBAL
+const PASSWORD = "himafi2026";
+
+// LOGIN FUNCTION
+function cekLogin(){
+const input = document.getElementById("password").value;
+
+if(input === PASSWORD){
+document.getElementById("loginBox").style.display = "none";
+document.getElementById("konten").style.display = "block";
+loadData();
+}else{
+alert("Kode salah!");
+}
+}
+
+// LOAD DATA DARI GOOGLE SHEETS
+function loadData(){
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQmUQd5BpNJWyTbcuHfIe9PQiSNJ_hw92pizz8DbPilZCX_TMcjCuj1zR6Wap33PFfHTG3svgOFSY3s/pub?output=csv")
+.then(res=>res.text())
+.then(data=>{
+const rows=data.split("\n").slice(1);
+
+let html="";
+
+rows.forEach(row=>{
+const col=row.split(",");
+
+if(col[0] && col[1]){
+html+=`
+<div class="file-card">
+<a href="${col[1]}" target="_blank">
+📄 ${col[0]}
+</a>
+</div>
+`;
+}
+});
+
+document.getElementById("banksoal-container").innerHTML=html;
+});
+}
+
+</script>
+
+</body>
+</html>
