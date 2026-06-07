@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kebakaran Parigi</title>
+<meta name="author" content="HIMAFI FMIPA Universitas Tadulako">
+<meta name="description" content="Website resmi Himpunan Mahasiswa Fisika FMIPA Universitas Tadulako yang memuat kajian, kegiatan, dan informasi organisasi.">
+<meta name="keywords" content="HIMAFI, FMIPA, Universitas Tadulako, Himpunan Mahasiswa Fisika, UNTAD">
+<meta property="og:image" content="img/LOGO HIMAFI NO BG.png">
+<link rel="icon" type="image/png" href="img/HIMAFI.png">
+<link rel="shortcut icon" href="img/LOGO HIMAFI NO BG.png">
+<link rel="apple-touch-icon" href="img/LOGO HIMAFI NO BG.png">
+<meta name="description" content="Website resmi HIMAFI FMIPA Universitas Tadulako yang memuat kajian mahasiswa, analisis kebakaran Parigi Moutong, dan informasi ilmiah berbasis sains.">
+
+<style>
+
+:root{
+--primary:#1f2f8f;
+--secondary:#19c2c2;
+--gradient:linear-gradient(to bottom,#1f2f8f,#19c2c2);
+--hover:#16236b;
+}
+
+body{
+font-family:Arial;
+max-width:auto;
+width:auto;
+line-height:1.6;
+position:relative;
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:url("img/LOGO HIMAFI NO BG.png");
+background-repeat:no-repeat;
+background-position:center;
+background-size:40%;
+
+opacity:0.2;
+z-index:-1;
+}
+
+header{
+position:relative;
+color:white;
+text-align:center;
+padding:30px 10px;
+background:url("img/header_footer.png");
+background-size:cover;
+background-position:top center;
+}
+
+header h1{
+margin:0;
+font-size:22px;
+}
+
+header p{
+margin:2px 0 0 0;
+font-size:13px;
+}
+
+.logo-kiri{
+position:absolute;
+top:30px;
+left:35px;
+width:70px;
+}
+
+.logo-kanan{
+position:absolute;
+top:30px;
+right:35px;
+width:105px;
+}
+
+.meta{
+color:gray;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.container p{
+text-align:justify;
+text-indent:0px;
+margin-bottom:15px;
+}
+
+.breadcrumb{
+padding: 0 15px;
+font-size:14px;
+margin:10px auto;
+max-width:1000px;
+}
+
+.breadcrumb a{
+text-decoration:none;
+color:var(--primary);
+font-weight:bold;
+}
+
+.breadcrumb a:hover{
+text-decoration:underline;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px 25px;
+line-height:1.8;
+}
+
+.center-text {
+  display: block;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: url("img/header_footer.png");
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+img{
+max-width:50%;
+height:auto;
+}
+
+.image-container{
+    margin:20px 0;
+     text-align:center;
+}
+
+.image-caption{
+    width:50%;
+    margin:8px auto 0 auto;
+    text-align:left;
+    font-size:14px;
+    font-style:italic;
+    text-align:center;
+}
+
+.image-container img{
+    width:100%;
+    border-radius:10px;
+}
+
+.image-source{
+    width:50%;
+    margin:5px auto 0 auto;
+    text-align:left;
+    font-size:12px;
+    color:#666;
+} 
+
+footer{
+    width:auto;
+    box-sizing:border-box;
+    text-align:center;
+    padding:20px;
+    color:white;
+    background:url("img/header_footer.png");
+    background-size:cover;
+    margin-top:40px;
+}
+
+@media (max-width:600px){
+
+h1{
+font-size:20px;
+}
+
+#map{
+height:250px;
+}
+
+nav a{
+font-size:14px;
+padding:8px 10px;
+}
+
+}
+
+nav{
+background: linear-gradient(to bottom, #2e4f7a, #1a2a44);
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:16px;
+
+padding:10px 18px;
+
+border-right:1px solid rgba(255,255,255,0.5);
+}
+
+nav a:last-child{
+border-right:none;
+}
+
+nav a:hover{
+background:rgba(255,255,255,0.2);
+color:#ffd700;
+}
+
+@media (max-width:768px){
+
+header h1{
+font-size:18px;
+}
+
+header p{
+font-size:12px;
+}
+
+.logo-kiri{
+width:30px;
+left:10px;
+}
+
+.logo-kanan{
+width:40px;
+right:10px;
+}
+
+.menu-toggle{
+font-size:22px;
+top:10px;
+left:10px;
+}
+
+.divisi, .kajian{
+padding:12px;
+}
+
+.container{
+padding:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
+<img src="img/logo himafi outline.png" class="logo-kanan">
+
+<h1>HIMAFI FMIPA UNTAD</h1>
+
+<p>
+Himpunan Mahasiswa Fisika<br>
+Fakultas Matematika dan Ilmu Pengetahuan Alam<br>
+Universitas Tadulako
+</p>
+
+</header>
+
+<div class="breadcrumb">
+<a href="index.html">Beranda</a> > 
+<a href="proker.html">Program Kerja</a> >
+<a href="proker_akpem.html">AKPEM</a> >
+<a href="akpem_kajian.html">Kajian</a> >
+Permasalahan Sampah di Kota Palu: Kajian Dampak Lingkungan dan Solusi dalam Perspektif Fisika
+</div>
+
+<div class="container">
+
+<h1>Permasalahan Sampah di Kota Palu: Kajian Dampak Lingkungan dan Solusi dalam Perspektif Fisika</h1>
+
+<div class="meta">
+Penulis: Divisi AKPEM (Akademik dan Pengabdian Masyarakat) • 7 Juni 2026
+</div>
+
+<div class="image-container">
+    <img src="img/Gambar1.jpg" alt="Aksi bersih lingkungan di kawasan Pantai Baiya, Kota Palu, dalam rangka Hari Lingkungan Hidup Sedunia 2026.">
+    <div class="image-caption">
+        Aksi bersih lingkungan di kawasan Pantai Baiya, Kota Palu, dalam rangka Hari Lingkungan Hidup Sedunia 2026.
+    </div>
+    <div class="image-source">
+        Sumber foto:
+        <a href="https://media.alkhairaat.id/diskominfosantik-palu-bersih-bersih-pantai-baiya-peringati-hari-lingkungan-hidup/"
+           target="_blank">
+           media.alkhairaat.id
+        </a>
+    </div>
+</div>
+
+<p>Dua hari yang lalu, ratusan orang turun ke pantai Kota Palu dari memungut botol, kantong plastik, dan serpihan material yang sudah tidak terhitung asalnya. Gerakan itu sederhana tapi bermakna. Namun bagi kader HIMAFI yang berdiri di atas tanah berlatar Fisika, pertanyaan kita harusnya lebih dalam: mengapa plastik itu ada di sana, ke mana ujungnya, dan apa yang bisa kita tawarkan?
+Kajian ini tidak berhenti di “sampah itu kotor”. Kita akan membedah masalah dari sisi ilmu, dari termodinamika hingga mekanika fluida, dan menghubungkannya kembali ke tanggung jawab kader sebagai penggerak perubahan di kampus dan masyarakat.
+<p>
+
+<h2>Apa itu Sampah?</h2>
+
+<p>
+Sebelum berbicara tentang solusi, forum perlu sepakat pada satu definisi kerja. Menurut <a href="https://peraturan.bpk.go.id/Details/39067/uu-no-18-tahun-2008" target="_blank">Undang-Undang No. 18 Tahun 2008</a> tentang Pengelolaan Sampah, sampah adalah sisa kegiatan sehari-hari manusia dan/atau proses alam yang berbentuk padat. Ini menjadi dasar hukum sekaligus definisi akademis yang kita pakai.
+</p>
+
+<h3>Klasifikasi Sampah yang Relevan dengan Kondisi Kota Palu</h3>
+
+<table>
+  <tr>
+    <th>Kategori</th>
+    <th>Karakteristik</th>
+    <th>Contoh</th>
+    <th>Urgensi</th>
+  </tr>
+
+  <tr>
+    <td>Organik</td>
+    <td>Dapat terurai secara biologis (biodegradable).</td>
+    <td>Sisa makanan, daun, dan kayu.</td>
+    <td>Menghasilkan gas metana di TPA jika tidak dikelola.</td>
+  </tr>
+
+  <tr>
+    <td>Anorganik</td>
+    <td>Mateial sintesis, persistensi tinggi di alam (ratusan tahun).</td>
+    <td>Plastik, kertas, logam, dan styrofoam.</td>
+    <td>Sumber utama krisis mikroplastik di teluk Palu.</td>
+  </tr>
+</table>
+
+<p>
+<b>Catatan Akademik: </b>Plastik adalah polimer sintetis dengan rantai hidrokarbon panjang. Ketahanan inilah yang membuatnya berguna, sekaligus menjadikannya ancaman paling persisten di ekosistem laut. Satu botol plastik membutuhkan 450 tahun untuk terurai sempurna di alam.
+</p>
+
+<div class="image-container">
+    <img src="img/Sampah.jpeg" alt="Tumpukan sampah di TPA Kawatuna, Kota Palu, yang diprediksi tidak sanggup menampung timbunan sampah warga.">
+    <div class="image-caption">
+        Tumpukan sampah di TPA Kawatuna, Kota Palu, Sulawesi Tengah.
+    </div>
+    <div class="image-source">
+        Sumber foto:
+        <a href="https://tutura.id/homepage/readmore/tpa-kawatuna-diprediksi-tak-sanggup-tampung-sampah-warga-palu--1670222185"
+           target="_blank">
+           tutura.id
+        </a>
+    </div>
+</div>
+
+<h2>Ancaman dan Dampak Sampah di Kota Palu</h2>
+
+<p>
+Persoalan sampah bukan krisis abstrak di kota lain. Ia hadir di perairan tempat ikan konsumsi kita ditangkap, di muara sungai yang mengalir melewati kampus, dan di TPA yang menanggung beban melampaui rencana awalnya (<a href="https://repository.untad.ac.id/id/eprint/113063/" target="_blank">Seftiani, 2023</a>).
+</p>
+
+<p>
+Sampah dari daratan Kota Palu tidak berdiam di tempat. Melalui sistem drainase kota dan aliran Sungai Palu, material anorganik, terutama plastik, sampai bergerak menuju Teluk Palu. Kawasan pesisir seperti Pantai Talise, Kampung Nelayan, dan Pantai Baiya menjadi titik akumulasi akhir dari kebocoran sampah daratan ini (<a href="https://media.alkhairaat.id/diskominfosantik-palu-bersih-bersih-pantai-baiya-peringati-hari-lingkungan-hidup/" target="_blank">media.alkhairaat.id</a>).
+</p>
+
+<div class="image-container">
+    <img src="img/merdeka.jpg" alt="sampah plastik yang menumpuk di kawasan pesisir Kota Palu.">
+    <div class="image-caption">
+        Hilirisasi Sampah ke Pesisir Teluk Palu.
+    </div>
+    <div class="image-source">
+        Sumber foto:
+        <a href="https://www.merdeka.com/peristiwa/aksi-bersih-teluk-palu-kumpulkan-100-ton-sampah-libatkan-ribuan-relawan-528885-mvk.html?utm_source=chatgpt.com&page=4"
+           target="_blank">
+            merdeka.com
+        </a>
+    </div>
+</div>
+
+<p>
+TPA Kawatuna di Kelurahan Kawatuna, Kecamatan Mantikulore, adalah satu-satunya Tempat Pemrosesan Akhir sampah Kota Palu. Berdasarkan proyeksi peneliti UNTAD, pada 2028 volume sampah di TPA Kawatuna diperkirakan mencapai 1.347.924 m³ sampai melampaui batas daya tampung sanitary landfill yang tersedia sebesar 1.115.000 m³ (<a href="https://repository.untad.ac.id/id/eprint/113063/" target="_blank">Seftiani, 2023</a>).
+</p>
+
+<table>
+  <tr>
+    <th>Input harian</th>
+    <th>Proyeksi kritis</th>
+    <th>Armada aktif</th>
+  </tr>
+
+  <tr>
+    <td>150-170 ton sampah per hari diterima TPA Kawatuna.</td>
+    <td>2028: volume sampah diproyeksikan melampaui daya tampung 1,1 juta m³.</td>
+    <td>87 unit kendaraan pengangkut melayani seluruh Kota Palu.</td>
+  </tr>
+<table>
+
+<p>
+(<a href="https://radarpalu.jawapos.com/kota-palu/2606915813/tpa-kawatuna-terima-sampah-warga-kota-palu-hingga-170-ton-setiap-hari" target="_blank">Radarpalu.jawapos.com</a>)
+</p>
+
+<div class="image-container">
+    <img src="img/TPA Kawatuna.jpeg" alt="TPA Kawatuna.">
+    <div class="image-caption">
+        TPA Kawatuna.
+    </div>
+    <div class="image-source">
+        Sumber foto:
+        <a href="https://news.detik.com/foto-news/d-7018704/pembatasan-kemasan-plastik-di-palu-sukses-turunkan-timbunan-sampah"
+           target="_blank">
+           news.detik.com
+        </a>
+    </div>
+</div>
+
+<p>
+Plastik yang terbuang ke pesisir tidak sekadar mengganggu pemandangan tetapi, ia terfragmentasi menjadi partikel berukuran kurang dari 5 mm yang disebut mikroplastik. Penelitian di perairan Teluk Palu (Agustus-Oktober 2022) menemukan konsentrasi mikroplastik tertinggi di Stasiun Lere: 11,29 partikel/liter di permukaan air dan 62,08 partikel/kg di sedimen dasar. Studi terpisah pada 220 ekor sampel ikan konsumsi di Teluk Palu menemukan 18 ekor (8,2%) terpapar mikroplastik jenis serpihan (fragment) (<a href="https://journal.trunojoyo.ac.id/jurnalkelautan/article/view/17566/7999" target="_blank">journal.trunojoyo.ac.id</a>).
+</p>
+
+<h2>Kajian Fisika terhadap Permasalahan Sampah</h2>
+
+<p>
+Jika dibedah dari kacamata fisika, fenomena pembuangan sampah ke laut di Palu ini melibatkan Hukum Kekekalan Massa, di mana material plastik yang tidak bisa dimusnahkan tersebut akan terus terakumulasi di lautan. Akibat paparan radiasi ultraviolet matahari serta hantaman energi gelombang yang konstan, plastik-plastik besar ini mengalami degradasi mekanis (patahan akibat tegangan fisik) hingga pecah menjadi partikel mikroplastik yang jauh lebih berbahaya. Lebih jauh lagi, berdasarkan prinsip mekanika fluida dan hidrodinamika, pergerakan arus air laut, pasang surut, serta gaya apung (buoyancy) yang dipengaruhi oleh perbedaan massa jenis material akan bertindak sebagai agen transpor dinamis yang menyebarkan polutan secara bebas di perairan Teluk Palu. Untuk memitigasi ancaman fisik ini, penerapan teknologi inovatif sangat mendesak guna meningkatkan efisiensi pengurangan volume limbah padat melalui konversi termal seperti pirolisis yang memanfaatkan prinsip termodinamika untuk mengurai rantai polimer organik tanpa oksigen menjadi fasa gas dan cair yang bernilai guna. 
+Selain itu, pendekatan elektrokimia seperti elektrokoagulasi yang memanfaatkan destabilisasi muatan partikel lewat arus listrik searah dapat dioptimalkan untuk mengendapkan polutan padat tersuspensi sebelum merembes dan mencemari air tanah pesisir (Affandi dkk., 2024).
+</p>
+
+<p>
+Dari perspektif mekanika fluida, arus dan debit Sungai Palu menjadi vektor transportasi utama sampah dari daratan menuju laut. Persamaan kontinuitas debit aliran fluida:<br>
+<b><span class = "center-text"> Q = A · v </span></b><br>
+di mana:<br>
+Q = debit aliran (m³/s)<br>
+A = luas penampang (m²)<br>
+v = kecepatan aliran (m/s)<br>
+Pada musim hujan, debit Sungai Palu meningkat signifikan, meningkatkan gaya seret (drag force) yang membawa sampah lebih cepat dan lebih jauh ke Teluk Palu. Ini menjelaskan secara fisika mengapa akumulasi sampah di pesisir melonjak setelah musim hujan.
+</p>
+
+<p>
+Plastik yang terpapar sinar matahari Palu mengalami kerusakan struktural tingkat molekul. Foton radiasi ultraviolet (UV) memutuskan ikatan kovalen rantai polimer melalui proses yang disebut fotodegradasi. Energi foton dari radiasi UV dinyatakan dalam persamaan Planck:<br>
+<b><span class = "center-text">E = h · f</span></b><br>
+di mana:<br>
+E = energi foton (J)<br>
+h = konstanta Planck (6,626 × 10⁻³⁴ J·s)<br>
+f = frekuensi (Hz)<br>
+Plastik yang sudah rapuh secara kimiawi kemudian hancur secara mekanis oleh deburan ombak Teluk Palu dan gesekan pasir pantai. Hasilnya: plastik makro yang masih bisa dipungut hari ini, dua bulan lagi sudah menjadi ribuan partikel mikroplastik yang tidak bisa dikumpulkan dengan tangan.
+</p>
+
+<div class="image-container">
+    <img src="-" alt="Ancaman atau dampak sampah di Kota Palu">
+    <div class="image-caption">
+        Ancaman atau dampak dari sampah di Kota Palu.
+    </div>
+    <div class="image-source">
+        Sumber foto:
+        <a href="-"
+           target="_blank">
+           news.detik.com
+        </a>
+    </div>
+</div>
+
+<h2>Solusi Permasalahan Sampah</h2>
+
+<h3>Aksi Bersih dan Kesadaran Kolektif</h3>
+
+<table>
+  <tr>
+    <th>Capaian Aksi Bersih</th>
+    <th>Tantangan yang Belum Terjawab</th>
+  </tr>
+
+  <tr>
+    <td>1.	Memulihkan kebersihan visual pesisir secara cepat.</td>
+    <td>1.	Tanpa perubahan perilaku di hulu, sampah akan kembali dalam hitungan minggu.</td>
+  </tr>
+
+  <tr>
+    <td>2.	Menyelamatkan satwa pantai dari jeratan sampah makro.</td>
+    <td>2.	Aksi tahunan berisiko menjadi ritual tanpa dampak structural.</td>
+  </tr>
+
+  <tr>
+    <td>3.	Membangun kesadaran kolektif warga yang terlibat.</td>
+    <td>3.	Perlu pendekatan preventif yang menyentuh akar masalah.</td>
+  </tr>
+
+  <tr>
+    <td>4.	Memperkuat semangat gotong royong antar-lembaga.</td>
+    <td>    </td>
+  </tr>
+  <table>
+
+<p>
+Integrasikan edukasi pilah sampah berbasis sains ke dalam program Bina Desa HIMAFI. Kader baru mendampingi warga secara langsung dan bukan hanya memungut sampah, tapi menjelaskan mengapa memilah itu penting dari sudut pandang kimia dan lingkungan. Ini melatih kemampuan komunikasi sains kader sekaligus memberikan dampak nyata.
+</p>
+
+<h2>Solusi Permasalahan Sampah dalam Sudut Pandang Fisika</h2>
+
+<p>
+Sungai Palu adalah jalur utama masuknya sampah dari daratan ke Teluk Palu. Solusi preventifnya adalah memasang jaring mekanis (trash trap) di muara. Dengan mengukur debit Sungai Palu pada berbagai musim menggunakan persamaan <b>Q = A · v</b>, kita bisa menghitung tekanan hidrodinamika yang harus ditahan oleh material jaring. Ini menentukan spesifikasi kekuatan material, ukuran mesh optimal, dan posisi instalasi berdasarkan pola sebaran gaya seret (drag force) fluida.
+Tindak lanjut konkret: Inisiasi lomba desain teknologi trash trap antar mahasiswa Fisika UNTAD. Peserta merancang spesifikasi trash trap berbasis persamaan mekanika fluida. Output lomba bisa diajukan sebagai proposal ke Dinas Lingkungan Hidup Kota Palu.
+</p>
+
+<p>
+Untuk sampah plastik yang sudah menumpuk di TPA Kawatuna dan tidak mungkin dipilah lagi, pirolisis menawarkan solusi berbasis termodinamika. Pirolisis adalah dekomposisi termal material organik pada suhu tinggi tanpa oksigen. Pada suhu 300–500°C, panas konduksi dan konveksi dalam reaktor tertutup memutuskan rantai hidrokarbon panjang polimer menjadi rantai-rantai pendek. Plastik fase padat berubah menjadi fase gas, lalu dikondensasikan kembali menjadi minyak sintetis yang bisa digunakan sebagai bahan bakar.
+Relevansi untuk HIMAFI: Desain reaktor pirolisis sederhana berbasis prinsip termodinamika bisa menjadi topik riset Tugas Akhir mahasiswa Fisika UNTAD sekaligus solusi nyata untuk TPA Kawatuna.
+</p>
+
+<p>
+Selain skema PLTSa pembakaran langsung, pendekatan termokimia melalui teknologi pirolisis menjadi solusi fisik yang sangat ideal untuk mengatasi spesifikasi sampah anorganik seperti polimer plastik yang mendominasi pencemaran di perairan Teluk Palu. Secara fisika, pirolisis merupakan proses dekomposisi termal bahan organik atau polimer pada temperatur tinggi (berkisar antara 350 derajat C hingga 450 derajat C di dalam kedap udara tanpa melibatkan oksigen (O2). Ketiadaan oksigen ini mencegah terjadinya pembakaran langsung dan pembentukan gas beracun seperti hidrogen sulfida (H2S). Melalui input energi termal yang tinggi, rantai panjang hidrokarbon yang kaku pada struktur makromolekul plastik akan mengalami pemutusan ikatan (reaksi cracking) menjadi rantai hidrokarbon pendek yang lebih ringkas dan berada dalam fase uap.
+</p>
+
+<p>
+Banyak jenis sampah, terutama plastik dan kardus, memiliki volume besar tetapi massa yang relatif kecil. Melalui prinsip tekanan dalam fisika, volume sampah dapat diperkecil dengan cara dipadatkan.<br>
+<span class = center-text>P=\frac{F}{A}</span><br>
+Semakin besar tekanan yang diberikan, semakin kecil volume sampah yang dihasilkan. Cara ini dapat menghemat ruang penyimpanan dan mempermudah proses pengangkutan.
+</p>
+
+<p>
+Konsep magnetisme dalam fisika dapat digunakan untuk memisahkan sampah logam dari sampah lainnya. Logam yang bersifat feromagnetik akan tertarik oleh magnet sehingga proses pemisahan menjadi lebih mudah dan efisien.<br>
+Selain itu, prinsip massa jenis digunakan untuk memisahkan sampah berdasarkan kemampuan mengapung atau tenggelam di dalam air.
+</p>
+
+<div class="image-container">
+    <img src="-" alt="Skema PLTSa atau pirolisis">
+    <div class="image-caption">
+        Skema PLTSa atau pirolisis.
+    </div>
+    <div class="image-source">
+        Sumber foto:
+        <a href="#"
+           target="_blank">
+           -
+        </a>
+    </div>
+</div>
+
+<p>Pada 5 - 6 Juni 2026, kita bersama-sama memungut sampah dari pantai Kota Palu. Tindakan itu penting. Tapi yang lebih penting adalah memastikan tindakan itu tidak berulang karena masalahnya tidak pernah diselesaikan dari akar.
+</p>
+
+</div> 
+  
+<footer>
+<p>© 2026 HIMAFI FMIPA Universitas Tadulako</p>
+</footer>
+
+</body>
+</html>
