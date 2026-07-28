@@ -151,38 +151,58 @@ margin-top:auto;
 </footer>
 
 <script>
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV3HFIubi3QoJoa50pymTNIRvMf3nqNVRMAuRC1zWWetUMmGqWGuA_EyVfbOlt_dZq2jdJF-Uv1Qf/pub?output=csv")
-.then(res=>res.text())
-.then(data=>{
-const rows=data.split("\n").slice(1);
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV3HFIubi3QoJoa50pymTNIRvMf3nqNVRMAuRC1zWWetUMmGqWGuA_EyVfbOlt_dZq2jdJF-Uv1Qf/pub?gid=939683988&single=true&output=csv")
+.then(response => response.text())
+.then(csv => {
 
-// ubah ke array
-let dataArr = rows.map(r => r.split(","));
+    // Pisahkan setiap baris
+    const rows = csv.trim().split("\n");
 
-// SORT NIM
-dataArr.sort((a,b)=>{
-return a[2].localeCompare(b[2]);
+    // Fungsi parser CSV (aman jika ada koma pada data)
+    const parseCSV = (line) => {
+        const regex = /(".*?"|[^",]+)(?=\s*,|\s*$)/g;
+        return line.match(regex).map(item =>
+            item.replace(/^"|"$/g, "").trim()
+        );
+    };
+
+    // Header
+    const headers = parseCSV(rows[0]);
+
+    // Cari posisi kolom otomatis
+    const namaIndex = headers.indexOf("Nama Lengkap");
+    const nimIndex = headers.indexOf("STAMBUK/NIM");
+    const angkatanIndex = headers.indexOf("Angkatan");
+
+    // Ambil semua data
+    let data = rows.slice(1).map(parseCSV);
+
+    // Urut berdasarkan NIM
+    data.sort((a,b)=>
+        a[nimIndex].localeCompare(b[nimIndex])
+    );
+
+    let html = "";
+
+    data.forEach(row=>{
+
+        if(row[angkatanIndex] == "2024"){
+
+            html += `
+            <div class="anggota-card">
+                <h3>${row[namaIndex]}</h3>
+                <p>${row[nimIndex]}</p>
+            </div>
+            `;
+
+        }
+
+    });
+
+    document.getElementById("anggota-container").innerHTML = html;
+
 });
-
-let html="";
-
-dataArr.forEach(col=>{
-
-let angkatan = col[3].replace(/"/g,'').trim();
-
-if(angkatan === "2024"){
-html+=`
-<div class="anggota-card">
-<h3>${col[1]}</h3>
-<p>${col[2]}</p>
-</div>
-`;
-}
-
-});
-
-document.getElementById("anggota-container").innerHTML=html;
-});
+</script>
 </script>
 
 </body>
