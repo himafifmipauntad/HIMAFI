@@ -173,6 +173,8 @@ fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV3HFIubi3QoJoa50pymTNI
     const namaIndex = headers.indexOf("Nama Lengkap");
     const nimIndex = headers.indexOf("STAMBUK/NIM");
     const angkatanIndex = headers.indexOf("Angkatan");
+    const statusIndex = headers.indexOf("Status");
+    const divisiIndex = headers.indexOf("Divisi");
 
     // Ambil semua data
     let data = rows.slice(1).map(parseCSV);
@@ -192,6 +194,8 @@ fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV3HFIubi3QoJoa50pymTNI
             <div class="anggota-card">
                 <h3>${row[namaIndex]}</h3>
                 <p>${row[nimIndex]}</p>
+                <p>${row[statusIndex]}</p>
+                <p>${row[divisiIndex]}</p>
             </div>
             `;
 
