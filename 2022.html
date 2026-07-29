@@ -123,9 +123,15 @@ font-size:14px;
 }
 
 .anggota-card p{
-margin:2px 0;
+margin:5px 0;
 font-size:13px;
 color:rgba(255,255,255,0.85);
+line-height:1.4;
+}
+
+.anggota-card strong{
+font-size:14px;
+color:#fff;
 }
 
 /* FOOTER */
@@ -163,58 +169,55 @@ fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTWyS1euSkM_XP1twKZDnVdly
 .then(response => response.text())
 .then(csv => {
 
-    // Pisahkan setiap baris
-    const rows = csv.trim().split("\n");
+// Pisahkan setiap baris
+const rows = csv.trim().split("\n");
 
-    // Fungsi parser CSV (aman jika ada koma pada data)
-    const parseCSV = (line) => {
-        const regex = /(".*?"|[^",]+)(?=\s*,|\s*$)/g;
-        return line.match(regex).map(item =>
-            item.replace(/^"|"$/g, "").trim()
-        );
-    };
+// Fungsi parser CSV (aman jika ada koma pada data)
+const parseCSV = (line) => {
+const regex = /(".*?"|[^",]+)(?=\s*,|\s*$)/g;
+return line.match(regex).map(item =>
+item.replace(/^"|"$/g, "").trim()
+);
+};
 
     // Header
-    const headers = parseCSV(rows[0]);
+const headers = parseCSV(rows[0]);
 
-    // Cari posisi kolom otomatis
-    const namaIndex = headers.indexOf("Nama Lengkap");
-    const nimIndex = headers.indexOf("STAMBUK/NIM");
-    const angkatanIndex = headers.indexOf("Angkatan");
-    const statusIndex = headers.indexOf("Status");
-    const divisiIndex = headers.indexOf("Divisi");
+// Cari posisi kolom otomatis
+const namaIndex = headers.indexOf("Nama Lengkap");
+const nimIndex = headers.indexOf("STAMBUK/NIM");
+const angkatanIndex = headers.indexOf("Angkatan");
+const statusIndex = headers.indexOf("Status");
+const divisiIndex = headers.indexOf("Divisi");
+const jabatanIndex = headers.indexOf("Jabatan");
 
-    // Ambil semua data
-    let data = rows.slice(1).map(parseCSV);
+// Ambil semua data
+let data = rows.slice(1).map(parseCSV);
 
-    // Urut berdasarkan NIM
-    data.sort((a,b)=>
-        a[nimIndex].localeCompare(b[nimIndex])
-    );
+// Urut berdasarkan NIM
+data.sort((a,b)=>
+a[nimIndex].localeCompare(b[nimIndex])
+);
 
-    let html = "";
+let html = "";
 
-    data.forEach(row=>{
+data.forEach(row=>{
 
-        if(row[angkatanIndex] == "2022"){
+if(row[angkatanIndex] == "2022"){
 
-            html += `
-            <div class="anggota-card">
-                <h3>${row[namaIndex]}</h3>
-                <p>${row[nimIndex]}</p>
-                <p>${row[statusIndex]}</p>
-                <p>${row[divisiIndex]}</p>
-            </div>
-            `;
-
-        }
-
-    });
-
-    document.getElementById("anggota-container").innerHTML = html;
-
+html += `
+<div class="anggota-card">
+<h3>${row[namaIndex]}</h3>
+<p><strong>${row[nimIndex]}</strong></p>
+${row[statusIndex] ? `<p>Status : ${row[statusIndex]}</p>` : ""}
+${row[divisiIndex] ? `<p>Divisi : ${row[divisiIndex]}</p>` : ""}
+${row[jabatanIndex] ? `<p>Jabatan : ${row[jabatanIndex]}</p>` : ""}
+</div>
+`;
+}
+});
+document.getElementById("anggota-container").innerHTML = html;
 });
 </script>
-
 </body>
 </html>
