@@ -4,14 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pilih Angkatan</title>
-<meta name="author" content="HIMAFI FMIPA Universitas Tadulako">
-<meta name="description" content="Website resmi Himpunan Mahasiswa Fisika FMIPA Universitas Tadulako yang memuat kajian, kegiatan, dan informasi organisasi.">
-<meta name="keywords" content="HIMAFI, FMIPA, Universitas Tadulako, Himpunan Mahasiswa Fisika, UNTAD">
-<meta property="og:image" content="img/LOGO HIMAFI NO BG.png">
-<link rel="icon" type="image/png" href="img/HIMAFI.png">
-<link rel="shortcut icon" href="img/LOGO HIMAFI NO BG.png">
-<link rel="apple-touch-icon" href="img/LOGO HIMAFI NO BG.png">
-<meta name="description" content="Website resmi HIMAFI FMIPA Universitas Tadulako yang memuat kajian mahasiswa, analisis kebakaran Parigi Moutong, dan informasi ilmiah berbasis sains.">
 
 <style>
 
@@ -78,6 +70,20 @@ margin:auto;
 padding:20px;
 }
 
+.logo-kiri{
+position:absolute;
+top:30px;
+left:35px;
+width:70px;
+}
+
+.logo-kanan{
+position:absolute;
+top:30px;
+right:35px;
+width:105px;
+}
+
 .opsi{
 display:flex;
 flex-direction:column;
@@ -95,12 +101,65 @@ text-align:center;
 font-weight:bold;
 }
 
+.footer-content{
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+.footer-content h2{
+margin:0 0 20px 0;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.footer-links a{
+display:flex;
+align-items:center;
+justify-content:center;
+width:45px;
+height:45px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.footer-links img{
+width:32px;
+height:32px;
+object-fit:contain;
+display:block;
+}
+
+.footer-links a:hover{
+transform:scale(1.15);
+}
+
+.copyright{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.25);
+font-size:13px;
+opacity:0.85;
+}
+
 footer{
 text-align:center;
-padding:20px;
+padding:30px 10px;
 color:white;
-background:url("img/header_footer.png");
-margin-top:auto;
+
+background:
+url("img/header_footer.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+margin-top:40px;
 }
 </style>
 </head>
@@ -108,6 +167,10 @@ margin-top:auto;
 <body>
 
 <header>
+
+<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
+<img src="img/logo himafi outline.png" class="logo-kanan">
+
 <h1>Pilih Angkatan</h1>
 </header>
 
@@ -117,6 +180,7 @@ margin-top:auto;
 
 <div class="container">
 <div class="opsi">
+<a href="alumni.html">Alumni</a>
 <a href="2022.html">Angkatan 2022</a>
 <a href="2023.html">Angkatan 2023</a>
 <a href="2024.html">Angkatan 2024</a>
@@ -124,8 +188,38 @@ margin-top:auto;
 </div>
 </div>
 
-<footer>
-<p>© 2026 HIMAFI FMIPA UNTAD</p>
+<footer id="contact">
+
+<div class="footer-content">
+
+<h2>Hubungi Kami</h2>
+
+<div class="footer-links">
+
+<a href="https://www.instagram.com/himafi.fmipa.untad/" target="_blank" aria-label="Instagram">
+<img src="img/Instagram.png" alt="Instagram">
+</a>
+
+<a href="https://www.tiktok.com/@himafi.fmipa.untad" target="_blank" aria-label="TikTok">
+<img src="img/Tiktok.png" alt="TikTok">
+</a>
+
+<a href="mailto:himafifmipauntad101@gmail.com" aria-label="Email">
+<img src="img/Gmail.png" alt="Email">
+</a>
+
+<a href="https://x.com/HimafiUntad" target="_blank" aria-label="X">
+<img src="img/x.png" alt="X">
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 HIMAFI FMIPA Universitas Tadulako
+</p>
+
+</div>
+
 </footer>
 
 </body>
