@@ -80,6 +80,20 @@ margin:auto;
 padding:20px;
 }
 
+.logo-kiri{
+position:absolute;
+top:30px;
+left:35px;
+width:70px;
+}
+
+.logo-kanan{
+position:absolute;
+top:30px;
+right:35px;
+width:105px;
+}
+
 /* GRID FIX */
 #anggota-container{
 display:grid;
@@ -135,12 +149,65 @@ color:#fff;
 }
 
 /* FOOTER */
+.footer-content{
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+.footer-content h2{
+margin:0 0 20px 0;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.footer-links a{
+display:flex;
+align-items:center;
+justify-content:center;
+width:45px;
+height:45px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.footer-links img{
+width:32px;
+height:32px;
+object-fit:contain;
+display:block;
+}
+
+.footer-links a:hover{
+transform:scale(1.15);
+}
+
+.copyright{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.25);
+font-size:13px;
+opacity:0.85;
+}
+
 footer{
 text-align:center;
-padding:20px;
+padding:30px 10px;
 color:white;
-background:url("img/header_footer.png");
-margin-top:auto;
+
+background:
+url("img/header_footer.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+margin-top:40px;
 }
 </style>
 </head>
@@ -148,6 +215,10 @@ margin-top:auto;
 <body>
 
 <header>
+
+<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
+<img src="img/logo himafi outline.png" class="logo-kanan">
+    
 <h1>Anggota Angkatan 2023</h1>
 </header>
 
@@ -160,66 +231,159 @@ margin-top:auto;
 <div id="anggota-container"></div>
 </div>
 
-<footer>
-<p>© 2026 HIMAFI FMIPA UNTAD</p>
+<footer id="contact">
+
+<div class="footer-content">
+
+<h2>Hubungi Kami</h2>
+
+<div class="footer-links">
+
+<a href="https://www.instagram.com/himafi.fmipa.untad/" target="_blank" aria-label="Instagram">
+<img src="img/Instagram.png" alt="Instagram">
+</a>
+
+<a href="https://www.tiktok.com/@himafi.fmipa.untad" target="_blank" aria-label="TikTok">
+<img src="img/Tiktok.png" alt="TikTok">
+</a>
+
+<a href="mailto:himafifmipauntad101@gmail.com" aria-label="Email">
+<img src="img/Gmail.png" alt="Email">
+</a>
+
+<a href="https://x.com/HimafiUntad" target="_blank" aria-label="X">
+<img src="img/x.png" alt="X">
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 HIMAFI FMIPA Universitas Tadulako
+</p>
+
+</div>
+
 </footer>
 
 <script>
 fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRzKXb0gAHkOb5ldjaZhbi-1AJwQZvt3Q2y57N3cbcekR6I7I7sxvyHjK1Rl09L2FO6AzcS4Fahl9DH/pub?output=csv")
-.then(response => response.text())
+.then(response => {
+    if (!response.ok) {
+        throw new Error("Gagal mengambil data Google Sheets");
+    }
+    return response.text();
+})
 .then(csv => {
 
-// Pisahkan setiap baris
-const rows = csv.trim().split("\n");
+    // Pisahkan baris
+    const rows = csv.trim().split(/\r?\n/);
 
-// Fungsi parser CSV (aman jika ada koma pada data)
-const parseCSV = (line) => {
-const regex = /(".*?"|[^",]+)(?=\s*,|\s*$)/g;
-return line.match(regex).map(item =>
-item.replace(/^"|"$/g, "").trim()
-);
-};
+    // Parser CSV
+    const parseCSV = (line) => {
+        const regex = /(".*?"|[^",]+)(?=\s*,|\s*$)/g;
 
-// Header
-const headers = parseCSV(rows[0]);
+        const result = line.match(regex);
 
-// Cari posisi kolom otomatis
-const namaIndex = headers.indexOf("Nama Lengkap");
-const nimIndex = headers.indexOf("STAMBUK/NIM");
-const angkatanIndex = headers.indexOf("Angkatan");
-const statusIndex = headers.indexOf("Status");
-const divisiIndex = headers.indexOf("Divisi");
-const jabatanIndex = headers.indexOf("Jabatan");
+        if (!result) {
+            return [];
+        }
 
-// Ambil semua data
-let data = rows.slice(1).map(parseCSV);
+        return result.map(item =>
+            item.replace(/^"|"$/g, "").trim()
+        );
+    };
 
-// Urut berdasarkan NIM
-data.sort((a,b)=>
-a[nimIndex].localeCompare(b[nimIndex])
-);
+    // Header
+    const headers = parseCSV(rows[0]);
 
-let html = "";
+    console.log("Header Google Sheets:", headers);
 
-data.forEach(row=>{
+    // Cari posisi kolom berdasarkan nama
+    const namaIndex = headers.indexOf("Nama Lengkap");
+    const nimIndex = headers.indexOf("STAMBUK/NIM");
+    const angkatanIndex = headers.indexOf("Angkatan");
+    const statusIndex = headers.indexOf("Status");
+    const divisiIndex = headers.indexOf("Divisi");
+    const jabatanIndex = headers.indexOf("Jabatan");
 
-if(row[angkatanIndex] == "2023"){
+    // Pastikan kolom penting ditemukan
+    if (
+        namaIndex === -1 ||
+        nimIndex === -1 ||
+        angkatanIndex === -1
+    ) {
+        throw new Error(
+            "Kolom Nama Lengkap, STAMBUK/NIM, atau Angkatan tidak ditemukan."
+        );
+    }
 
-html += `
-<div class="anggota-card">
-<h3>${row[namaIndex]}</h3>
-<p><strong>${row[nimIndex]}</strong></p>
-${row[statusIndex] ? `<p>Status : ${row[statusIndex]}</p>` : ""}
-${row[divisiIndex] ? `<p>Divisi : ${row[divisiIndex]}</p>` : ""}
-${row[jabatanIndex] ? `<p>Jabatan : ${row[jabatanIndex]}</p>` : ""}
-</div>
-`;
+    // Ambil data
+    let data = rows
+        .slice(1)
+        .filter(row => row.trim() !== "")
+        .map(parseCSV);
 
-}
+    // Urut berdasarkan NIM
+    data.sort((a, b) => {
+        return (a[nimIndex] || "").localeCompare(
+            b[nimIndex] || ""
+        );
+    });
 
-});
+    let html = "";
 
-document.getElementById("anggota-container").innerHTML = html;
+    data.forEach(row => {
+
+        // Hanya tampilkan angkatan 2023
+        if (
+            (row[angkatanIndex] || "").trim() === "2023"
+        ) {
+
+            html += `
+            <div class="anggota-card">
+
+                <h3>${row[namaIndex] || ""}</h3>
+
+                <p>
+                    <strong>${row[nimIndex] || ""}</strong>
+                </p>
+
+                ${
+                    statusIndex !== -1 && row[statusIndex]
+                    ? `<p>Status : ${row[statusIndex]}</p>`
+                    : ""
+                }
+
+                ${
+                    divisiIndex !== -1 && row[divisiIndex]
+                    ? `<p>Divisi : ${row[divisiIndex]}</p>`
+                    : ""
+                }
+
+                ${
+                    jabatanIndex !== -1 && row[jabatanIndex]
+                    ? `<p>Jabatan : ${row[jabatanIndex]}</p>`
+                    : ""
+                }
+
+            </div>
+            `;
+        }
+
+    });
+
+    document.getElementById("anggota-container").innerHTML = html;
+
+})
+.catch(error => {
+
+    console.error("Error:", error);
+
+    document.getElementById("anggota-container").innerHTML = `
+        <p style="color:red; text-align:center;">
+            Data anggota tidak dapat dimuat.
+        </p>
+    `;
 
 });
 </script>
