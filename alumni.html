@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anggota 2023</title>
+<meta name="author" content="HIMAFI FMIPA Universitas Tadulako">
+<meta name="description" content="Website resmi Himpunan Mahasiswa Fisika FMIPA Universitas Tadulako yang memuat kajian, kegiatan, dan informasi organisasi.">
+<meta name="keywords" content="HIMAFI, FMIPA, Universitas Tadulako, Himpunan Mahasiswa Fisika, UNTAD">
+<meta property="og:image" content="img/LOGO HIMAFI NO BG.png">
+<link rel="icon" type="image/png" href="img/HIMAFI.png">
+<link rel="shortcut icon" href="img/LOGO HIMAFI NO BG.png">
+<link rel="apple-touch-icon" href="img/LOGO HIMAFI NO BG.png">
+<meta name="description" content="Website resmi HIMAFI FMIPA Universitas Tadulako yang memuat kajian mahasiswa, analisis kebakaran Parigi Moutong, dan informasi ilmiah berbasis sains.">
+
+<style>
+:root{
+--primary:#1f2f8f;
+--secondary:#19c2c2;
+--gradient:linear-gradient(to bottom,#1f2f8f,#19c2c2);
+--hover:#16236b;
+}
+
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+position:relative;
+}
+
+/* LOGO BURAM */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("img/LOGO HIMAFI NO BG.png") center no-repeat;
+background-size:40%;
+opacity:0.08;
+z-index:-1;
+}
+
+/* HEADER */
+header{
+color:white;
+text-align:center;
+padding:30px;
+background:url("img/header_footer.png");
+background-size:cover;
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+padding: 0 15px;
+font-size:14px;
+margin:10px auto;
+max-width:1000px;
+}
+
+.breadcrumb a{
+text-decoration:none;
+color:var(--primary);
+font-weight:bold;
+}
+
+.breadcrumb a:hover{
+text-decoration:underline;
+}
+
+/* CONTAINER */
+.container{
+flex:1;
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+/* GRID FIX */
+#anggota-container{
+display:grid;
+grid-template-columns:repeat(4, 1fr);
+gap:15px;
+}
+
+/* RESPONSIVE */
+@media (max-width:900px){
+#anggota-container{
+grid-template-columns:repeat(3, 1fr);
+}
+}
+
+.logo-kiri{
+position:absolute;
+top:30px;
+left:35px;
+width:70px;
+}
+
+.logo-kanan{
+position:absolute;
+top:30px;
+right:35px;
+width:105px;
+}
+
+@media (max-width:600px){
+#anggota-container{
+grid-template-columns:repeat(2, 1fr);
+}
+}
+
+@media (max-width:400px){
+#anggota-container{
+grid-template-columns:1fr;
+}
+}
+
+/* CARD */
+.anggota-card{
+background:url("img/header_footer.png");
+background-size:cover;
+padding:15px;
+border-radius:10px;
+text-align:center;
+color:white;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.anggota-card h3{
+margin:5px 0;
+font-size:14px;
+}
+
+.anggota-card p{
+margin:5px 0;
+font-size:13px;
+color:rgba(255,255,255,0.85);
+line-height:1.4;
+}
+
+.anggota-card strong{
+font-size:14px;
+color:#fff;
+}
+
+.no-data{
+    grid-column:1 / -1;
+    text-align:center;
+    padding:40px 20px;
+    color:black;
+    font-size:16px;
+}
+
+/* FOOTER */
+.footer-content{
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+.footer-content h2{
+margin:0 0 20px 0;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.footer-links a{
+display:flex;
+align-items:center;
+justify-content:center;
+width:45px;
+height:45px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.footer-links img{
+width:32px;
+height:32px;
+object-fit:contain;
+display:block;
+}
+
+.footer-links a:hover{
+transform:scale(1.15);
+}
+
+.copyright{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.25);
+font-size:13px;
+opacity:0.85;
+}
+
+footer{
+text-align:center;
+padding:30px 10px;
+color:white;
+
+background:
+url("img/header_footer.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
+<img src="img/logo himafi outline.png" class="logo-kanan">    
+
+<h1>Anggota Alumni</h1>
+</header>
+
+<div class="breadcrumb">
+<a href="index.html">Beranda</a> /
+<a href="anggota.html">Anggota</a> / Alumni
+</div>
+
+<div class="container">
+<div id="anggota-container"></div>
+</div>
+
+<footer id="contact">
+
+<div class="footer-content">
+
+<h2>Hubungi Kami</h2>
+
+<div class="footer-links">
+
+<a href="https://www.instagram.com/himafi.fmipa.untad/" target="_blank" aria-label="Instagram">
+<img src="img/Instagram.png" alt="Instagram">
+</a>
+
+<a href="https://www.tiktok.com/@himafi.fmipa.untad" target="_blank" aria-label="TikTok">
+<img src="img/Tiktok.png" alt="TikTok">
+</a>
+
+<a href="mailto:himafifmipauntad101@gmail.com" aria-label="Email">
+<img src="img/Gmail.png" alt="Email">
+</a>
+
+<a href="https://x.com/HimafiUntad" target="_blank" aria-label="X">
+<img src="img/x.png" alt="X">
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 HIMAFI FMIPA Universitas Tadulako
+</p>
+
+</div>
+
+</footer>
+
+<script>
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRzKXb0gAHkOb5ldjaZhbi-1AJwQZvt3Q2y57N3cbcekR6I7I7sxvyHjK1Rl09L2FO6AzcS4Fahl9DH/pub?output=csv")
+.then(response => {
+    if (!response.ok) {
+        throw new Error("Gagal mengambil data Google Sheets");
+    }
+
+    return response.text();
+})
+.then(csv => {
+
+    // Pisahkan setiap baris
+    const rows = csv.trim().split(/\r?\n/);
+
+    // Parser CSV
+    const parseCSV = (line) => {
+
+        const regex = /(".*?"|[^",]+)(?=\s*,|\s*$)/g;
+
+        const result = line.match(regex);
+
+        if (!result) {
+            return [];
+        }
+
+        return result.map(item =>
+            item.replace(/^"|"$/g, "").trim()
+        );
+    };
+
+    // Header
+    const headers = parseCSV(rows[0]);
+
+    console.log("Header Google Sheets:", headers);
+
+    // Cari posisi kolom berdasarkan nama header
+    const namaIndex = headers.indexOf("Nama Lengkap");
+    const nimIndex = headers.indexOf("STAMBUK/NIM");
+    const angkatanIndex = headers.indexOf("Angkatan");
+    const statusIndex = headers.indexOf("Status");
+    const pekerjaanIndex = headers.indexOf("Pekerjaan");
+
+    // Pastikan kolom penting ditemukan
+    if (
+        namaIndex === -1 ||
+        nimIndex === -1 ||
+        angkatanIndex === -1 ||
+        statusIndex === -1
+    ) {
+        throw new Error(
+            "Kolom Nama Lengkap, STAMBUK/NIM, Angkatan, atau Status tidak ditemukan."
+        );
+    }
+
+    // Ambil semua data
+    let data = rows
+        .slice(1)
+        .filter(row => row.trim() !== "")
+        .map(parseCSV);
+
+    // Urut berdasarkan angkatan
+    data.sort((a, b) => {
+
+        const angkatanA = a[angkatanIndex] || "";
+        const angkatanB = b[angkatanIndex] || "";
+
+        return angkatanA.localeCompare(angkatanB, undefined, {
+            numeric: true
+        });
+    });
+
+    let html = "";
+
+    data.forEach(row => {
+
+        // Hanya tampilkan yang berstatus ALUMNI
+        if (
+            (row[statusIndex] || "").trim().toLowerCase() === "Alumni"
+        ) {
+
+            html += `
+            <div class="anggota-card">
+
+                <h3>${row[namaIndex] || ""}</h3>
+
+                <p>
+                    <strong>${row[nimIndex] || ""}</strong>
+                </p>
+
+                <p>
+                    Angkatan : ${row[angkatanIndex] || ""}
+                </p>
+
+                <p>
+                    Status : ${row[statusIndex] || ""}
+                </p>
+
+                ${
+                    pekerjaanIndex !== -1 && row[pekerjaanIndex]
+                    ? `<p>Pekerjaan : ${row[pekerjaanIndex]}</p>`
+                    : ""
+                }
+
+            </div>
+            `;
+        }
+
+    });
+
+    // Jika belum ada alumni
+if (html === "") {
+
+    html = `
+    <div class="no-data">
+        Belum ada data alumni yang tersedia.
+    </div>
+    `;
+
+}
+
+    document.getElementById("anggota-container").innerHTML = html;
+
+})
+.catch(error => {
+
+    console.error("Error:", error);
+
+    document.getElementById("anggota-container").innerHTML = `
+        <p style="color:red; text-align:center;">
+            Data alumni tidak dapat dimuat.
+        </p>
+    `;
+
+});
+</script>
+
+</body>
+</html>
