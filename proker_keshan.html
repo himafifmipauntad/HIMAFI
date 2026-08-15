@@ -115,13 +115,65 @@ font-weight:bold;
 }
 
 /* FOOTER */
+.footer-content{
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+.footer-content h2{
+margin:0 0 20px 0;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.footer-links a{
+display:flex;
+align-items:center;
+justify-content:center;
+width:45px;
+height:45px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.footer-links img{
+width:32px;
+height:32px;
+object-fit:contain;
+display:block;
+}
+
+.footer-links a:hover{
+transform:scale(1.15);
+}
+
+.copyright{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.25);
+font-size:13px;
+opacity:0.85;
+}
+
 footer{
 text-align:center;
-padding:20px;
+padding:30px 10px;
 color:white;
-background:url("img/header_footer.png");
+
+background:
+url("img/header_footer.png");
+
 background-size:cover;
-margin-top:auto;
+background-position:center;
+background-repeat:no-repeat;
+
+margin-top:40px;
 }
 </style>
 
@@ -164,8 +216,38 @@ Universitas Tadulako
 
 </div>
 
-<footer>
-<p>© 2026 HIMAFI FMIPA Universitas Tadulako</p>
+<footer id="contact">
+
+<div class="footer-content">
+
+<h2>Hubungi Kami</h2>
+
+<div class="footer-links">
+
+<a href="https://www.instagram.com/himafi.fmipa.untad/" target="_blank" aria-label="Instagram">
+<img src="img/Instagram.png" alt="Instagram">
+</a>
+
+<a href="https://www.tiktok.com/@himafi.fmipa.untad" target="_blank" aria-label="TikTok">
+<img src="img/Tiktok.png" alt="TikTok">
+</a>
+
+<a href="mailto:himafifmipauntad101@gmail.com" aria-label="Email">
+<img src="img/Gmail.png" alt="Email">
+</a>
+
+<a href="https://x.com/HimafiUntad" target="_blank" aria-label="X">
+<img src="img/x.png" alt="X">
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 HIMAFI FMIPA Universitas Tadulako
+</p>
+
+</div>
+
 </footer>
 
 </body>
