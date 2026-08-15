@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divisi POK</title>
+<title>POK</title>
 <meta name="author" content="HIMAFI FMIPA Universitas Tadulako">
 <meta name="description" content="Website resmi Himpunan Mahasiswa Fisika FMIPA Universitas Tadulako yang memuat kajian, kegiatan, dan informasi organisasi.">
 <meta name="keywords" content="HIMAFI, FMIPA, Universitas Tadulako, Himpunan Mahasiswa Fisika, UNTAD">
@@ -13,7 +13,6 @@
 <link rel="apple-touch-icon" href="img/LOGO HIMAFI NO BG.png">
 
 <style>
-
 :root{
 --primary:#1f2f8f;
 --secondary:#19c2c2;
@@ -21,41 +20,235 @@
 --hover:#16236b;
 }
 
+/* BODY */
 body{
+margin:0;
 font-family:Arial;
-text-align:center;
-padding:100px;
+background:#f5f5f5;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+position:relative;
 }
 
-h1{
-color:var(--primary);
+/* LOGO BURAM */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("img/LOGO HIMAFI NO BG.png") center no-repeat;
+background-size:40%;
+opacity:0.08;
+z-index:-1;
 }
 
-p{
-color:#555;
-}
-
-a{
-display:inline-block;
-margin-top:30px;
-padding:10px 20px;
-background:var(--gradient);
+/* HEADER */
+header{
+position:relative;
 color:white;
-text-decoration:none;
-border-radius:6px;
+text-align:center;
+padding:30px 10px;
+background:url("img/header_footer.png");
+background-size:cover;
+background-position:top center;
 }
 
+.logo-kiri{
+position:absolute;
+top:25px;
+left:20px;
+width:60px;
+}
+
+.logo-kanan{
+position:absolute;
+top:25px;
+right:20px;
+width:80px;
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+padding: 0 15px;
+font-size:14px;
+margin:10px auto;
+max-width:1000px;
+}
+
+.breadcrumb a{
+text-decoration:none;
+color:var(--primary);
+font-weight:bold;
+}
+
+.breadcrumb a:hover{
+text-decoration:underline;
+}
+
+/* CONTAINER */
+.container{
+flex:1;
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+/* CARD */
+.kajian{
+background:url("img/header_footer.png");
+background-size:cover;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* LINK */
+.kajian a{
+font-size:18px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+/* FOOTER */
+.footer-content{
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+.footer-content h2{
+margin:0 0 20px 0;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.footer-links a{
+display:flex;
+align-items:center;
+justify-content:center;
+width:45px;
+height:45px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.footer-links img{
+width:32px;
+height:32px;
+object-fit:contain;
+display:block;
+}
+
+.footer-links a:hover{
+transform:scale(1.15);
+}
+
+.copyright{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.25);
+font-size:13px;
+opacity:0.85;
+}
+
+footer{
+text-align:center;
+padding:30px 10px;
+color:white;
+
+background:
+url("img/header_footer.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+margin-top:40px;
+}
 </style>
 
 </head>
 
 <body>
 
-<h1>Divisi POK</h1>
+<header>
+<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
+<img src="img/logo himafi outline.png" class="logo-kanan">
 
-<p>Halaman ini sedang dalam tahap pengembangan.</p>
+<h1>HIMAFI FMIPA UNTAD</h1>
+<p>
+Himpunan Mahasiswa Fisika<br>
+Fakultas Matematika dan Ilmu Pengetahuan Alam<br>
+Universitas Tadulako
+</p>
+</header>
 
-<a href="proker.html">← Kembali ke Program Kerja</a>
+<div class="breadcrumb">
+<a href="index.html">Beranda</a> /
+<a href="proker.html">Program Kerja</a> / POK
+</div>
+
+<div class="container">
+
+<h2>Program Kerja Divisi POK</h2>
+
+<div class="kajian">
+<a href="#">-</a>
+</div>
+
+<div class="kajian">
+<a href="#">-</a>
+</div>
+
+<div class="kajian">
+<a href="#">-</a>
+</div>
+
+</div>
+
+<footer id="contact">
+
+<div class="footer-content">
+
+<h2>Hubungi Kami</h2>
+
+<div class="footer-links">
+
+<a href="https://www.instagram.com/himafi.fmipa.untad/" target="_blank" aria-label="Instagram">
+<img src="img/Instagram.png" alt="Instagram">
+</a>
+
+<a href="https://www.tiktok.com/@himafi.fmipa.untad" target="_blank" aria-label="TikTok">
+<img src="img/Tiktok.png" alt="TikTok">
+</a>
+
+<a href="mailto:himafifmipauntad101@gmail.com" aria-label="Email">
+<img src="img/Gmail.png" alt="Email">
+</a>
+
+<a href="https://x.com/HimafiUntad" target="_blank" aria-label="X">
+<img src="img/x.png" alt="X">
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 HIMAFI FMIPA Universitas Tadulako
+</p>
+
+</div>
+
+</footer>
 
 </body>
 </html>
