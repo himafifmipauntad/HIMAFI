@@ -1,378 +1,524 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anggota 2023</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daftar anggota Angkatan 2023 HIMAFI FMIPA Universitas Tadulako.">
+  <meta name="author" content="HIMAFI FMIPA Universitas Tadulako">
+  <title>Angkatan 2025 | HIMAFI FMIPA UNTAD</title>
+  <link rel="icon" type="image/png" href="img/HIMAFI.png">
+  <link rel="apple-touch-icon" href="img/LOGO HIMAFI NO BG.png">
 
-<style>
-:root{
---primary:#1f2f8f;
---secondary:#19c2c2;
---gradient:linear-gradient(to bottom,#1f2f8f,#19c2c2);
---hover:#16236b;
-}
+  <style>
+    :root {
+      --primary: #1f2f8f;
+      --secondary: #19c2c2;
+    }
 
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-display:flex;
-flex-direction:column;
-min-height:100vh;
-position:relative;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* LOGO BURAM */
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url("img/LOGO HIMAFI NO BG.png") center no-repeat;
-background-size:40%;
-opacity:0.08;
-z-index:-1;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      color: #17223b;
+      background: #f5f7fb;
+    }
 
-/* HEADER */
-header{
-color:white;
-text-align:center;
-padding:30px;
-background:url("img/header_footer.png");
-background-size:cover;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .08;
+      background: url("img/LOGO HIMAFI NO BG.png") center / min(40vw, 420px) no-repeat;
+      pointer-events: none;
+    }
 
-/* BREADCRUMB */
-.breadcrumb{
-padding: 0 15px;
-font-size:14px;
-margin:10px auto;
-max-width:1000px;
-}
+    header,
+    footer {
+      color: white;
+      background: url("img/header_footer.png") center / cover no-repeat;
+    }
 
-.breadcrumb a{
-text-decoration:none;
-color:var(--primary);
-font-weight:bold;
-}
+    header {
+      position: relative;
+      min-height: 220px;
+      padding: 48px 120px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .25);
+      display: grid;
+      place-items: center;
+    }
 
-.breadcrumb a:hover{
-text-decoration:underline;
-}
+    header h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
 
-/* CONTAINER */
-.container{
-flex:1;
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
+    header p {
+      margin: 10px 0 0;
+      font-size: clamp(.9rem, 2vw, 1.05rem);
+      line-height: 1.45;
+    }
 
-.logo-kiri{
-position:absolute;
-top:30px;
-left:35px;
-width:70px;
-}
+    .logo-kiri,
+    .logo-kanan {
+      position: absolute;
+      top: 34px;
+      height: auto;
+      object-fit: contain;
+    }
 
-.logo-kanan{
-position:absolute;
-top:30px;
-right:35px;
-width:105px;
-}
+    .logo-kiri {
+      left: 32px;
+      width: 72px;
+    }
 
-/* GRID FIX */
-#anggota-container{
-display:grid;
-grid-template-columns:repeat(4, 1fr);
-gap:15px;
-}
+    .logo-kanan {
+      right: 32px;
+      width: 105px;
+    }
 
-/* RESPONSIVE */
-@media (max-width:900px){
-#anggota-container{
-grid-template-columns:repeat(3, 1fr);
-}
-}
+    .breadcrumb {
+      width: min(1100px, calc(100% - 32px));
+      margin: 18px auto 0;
+      font-size: .9rem;
+      color: #52617b;
+    }
 
-@media (max-width:600px){
-#anggota-container{
-grid-template-columns:repeat(2, 1fr);
-}
-}
+    .breadcrumb a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-@media (max-width:400px){
-#anggota-container{
-grid-template-columns:1fr;
-}
-}
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
 
-/* CARD */
-.anggota-card{
-background:url("img/header_footer.png");
-background-size:cover;
-padding:15px;
-border-radius:10px;
-text-align:center;
-color:white;
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
-}
+    main {
+      flex: 1;
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 12px 0 46px;
+    }
 
-.anggota-card h3{
-margin:5px 0;
-font-size:14px;
-}
+    .page-title {
+      margin: 18px 0 8px;
+      color: var(--primary);
+      text-align: center;
+      font-size: clamp(1.55rem, 4vw, 2.1rem);
+    }
 
-.anggota-card p{
-margin:2px 0;
-font-size:13px;
-color:rgba(255,255,255,0.85);
-}
+    .page-intro {
+      max-width: 640px;
+      margin: 0 auto 26px;
+      text-align: center;
+      line-height: 1.55;
+      color: #52617b;
+    }
 
-/* FOOTER */
-.footer-content{
-max-width:1000px;
-margin:auto;
-text-align:center;
-}
+    .anggota-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
 
-.footer-content h2{
-margin:0 0 20px 0;
-}
+    .anggota-card {
+  min-height: 290px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  border-radius: 14px;
 
-.footer-links{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:20px;
-}
+    background:
+    linear-gradient(rgba(8, 20, 20, 0.72), rgba(8, 20, 20, 0.72)),
+    url("img/header_footer.png") center / cover no-repeat;
 
-.footer-links a{
-display:flex;
-align-items:center;
-justify-content:center;
-width:45px;
-height:45px;
-text-decoration:none;
-transition:0.3s;
-}
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    }
 
-.footer-links img{
-width:32px;
-height:32px;
-object-fit:contain;
-display:block;
-}
+    .anggota-card img {
+      width: 126px;
+      height: 126px;
+      flex: 0 0 auto;
+      object-fit: cover;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: #dfe4ed;
+    }
 
-.footer-links a:hover{
-transform:scale(1.15);
-}
+    .anggota-card h3 {
+      margin: 14px 0 7px;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
 
-.copyright{
-margin-top:20px;
-padding-top:15px;
-border-top:1px solid rgba(255,255,255,0.25);
-font-size:13px;
-opacity:0.85;
-}
+    .anggota-card p {
+      margin: 3px 0;
+      font-size: .87rem;
+      line-height: 1.42;
+      color: rgba(255, 255, 255, .94);
+    }
 
-footer{
-text-align:center;
-padding:30px 10px;
-color:white;
+    .anggota-card .nim {
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
 
-background:
-url("img/header_footer.png");
+    .message {
+      grid-column: 1 / -1;
+      margin: 0;
+      padding: 24px;
+      text-align: center;
+      color: #52617b;
+      font-style: italic;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 3px 12px rgba(20, 35, 90, .08);
+    }
 
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+    footer {
+      margin-top: auto;
+      padding: 27px 16px 17px;
+      text-align: center;
+    }
 
-margin-top:40px;
-}
-</style>
+    footer h2 {
+      margin: 0 0 16px;
+      font-size: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 17px;
+    }
+
+    .footer-links a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      transition: transform .2s ease;
+    }
+
+    .footer-links a:hover {
+      transform: translateY(-3px);
+    }
+
+    .footer-links img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .copyright {
+      margin: 18px 0 0;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, .28);
+      font-size: .8rem;
+      opacity: .9;
+    }
+
+    @media (max-width: 760px) {
+      .anggota-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      header {
+        min-height: 205px;
+        padding: 45px 105px;
+      }
+
+      .logo-kiri {
+        left: 22px;
+        width: 62px;
+      }
+
+      .logo-kanan {
+        right: 22px;
+        width: 86px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        min-height: 190px;
+        padding: 44px 75px;
+      }
+
+      header p {
+        font-size: .78rem;
+      }
+
+      .logo-kiri {
+        top: 25px;
+        left: 14px;
+        width: 47px;
+      }
+
+      .logo-kanan {
+        top: 25px;
+        right: 14px;
+        width: 64px;
+      }
+
+      main,
+      .breadcrumb {
+        width: min(100% - 24px, 1100px);
+      }
+
+      .anggota-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .anggota-card {
+        min-height: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <img src="img/LOGO OUTLINE UNTAD.png" alt="Logo Universitas Tadulako" class="logo-kiri">
 
-<header>
+    <div>
+      <h1>Anggota HIMAFI FMIPA UNTAD</h1>
+      <p>
+        Himpunan Mahasiswa Fisika<br>
+        Fakultas Matematika dan Ilmu Pengetahuan Alam<br>
+        Universitas Tadulako
+      </p>
+    </div>
 
-<img src="img/LOGO OUTLINE UNTAD.png" class="logo-kiri">
-<img src="img/logo himafi outline.png" class="logo-kanan">
+    <img src="img/logo himafi outline.png" alt="Logo HIMAFI" class="logo-kanan">
+  </header>
 
-<h1>Anggota Angkatan 2025</h1>
-</header>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Beranda</a> / <a href="anggota.html">Anggota</a> / <span aria-current="page">Angkatan 2025</span>
+  </nav>
 
-<div class="breadcrumb">
-<a href="index.html">Beranda</a> /
-<a href="anggota.html">Anggota</a> / 2025
-</div>
+  <main>
+    <h2 class="page-title">Angkatan 2025</h2>
+    <p class="page-intro">Daftar anggota HIMAFI FMIPA UNTAD Angkatan 2025.</p>
 
-<div class="container">
-<div id="anggota-container"></div>
-</div>
+    <section aria-label="Daftar anggota Angkatan 2023">
+      <div id="anggota-container" class="anggota-grid" aria-live="polite">
+        <p class="message">Memuat data anggota...</p>
+      </div>
+    </section>
+  </main>
 
-<footer id="contact">
+  <footer id="contact">
+    <h2>Hubungi Kami</h2>
 
-<div class="footer-content">
+    <div class="footer-links">
+      <a href="https://www.instagram.com/himafi.fmipa.untad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="img/Instagram.png" alt="">
+      </a>
 
-<h2>Hubungi Kami</h2>
+      <a href="https://www.tiktok.com/@himafi.fmipa.untad" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <img src="img/Tiktok.png" alt="">
+      </a>
 
-<div class="footer-links">
+      <a href="mailto:himafifmipauntad101@gmail.com" aria-label="Email">
+        <img src="img/Gmail.png" alt="">
+      </a>
 
-<a href="https://www.instagram.com/himafi.fmipa.untad/" target="_blank" aria-label="Instagram">
-<img src="img/Instagram.png" alt="Instagram">
-</a>
+      <a href="https://x.com/HimafiUntad" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="img/x.png" alt="">
+      </a>
+    </div>
 
-<a href="https://www.tiktok.com/@himafi.fmipa.untad" target="_blank" aria-label="TikTok">
-<img src="img/Tiktok.png" alt="TikTok">
-</a>
+    <p class="copyright">© 2026 HIMAFI FMIPA Universitas Tadulako</p>
+  </footer>
 
-<a href="mailto:himafifmipauntad101@gmail.com" aria-label="Email">
-<img src="img/Gmail.png" alt="Email">
-</a>
+  <script>
+    const SHEET_URL =
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMFZgzCkVhBJ-_Yh_hHi9lol16OW0rnHFSSVV16ai58WzNboOefIqC5HfCqIklrX-rTFLK2vdA5b2V/pub?output=csv";
 
-<a href="https://x.com/HimafiUntad" target="_blank" aria-label="X">
-<img src="img/x.png" alt="X">
-</a>
+    const ANGKATAN_TARGET = "2025";
+    const DEFAULT_PHOTO = "img/default-user.png";
 
-</div>
+    const clean = value => String(value ?? "").trim();
 
-<p class="copyright">
-© 2026 HIMAFI FMIPA Universitas Tadulako
-</p>
+    const escapeHTML = value =>
+      clean(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
-</div>
+    function convertDriveUrl(url) {
+      url = clean(url);
 
-</footer>
+      if (!url) return "";
 
-<script>
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRzKXb0gAHkOb5ldjaZhbi-1AJwQZvt3Q2y57N3cbcekR6I7I7sxvyHjK1Rl09L2FO6AzcS4Fahl9DH/pub?output=csv")
-.then(response => {
-    if (!response.ok) {
-        throw new Error("Gagal mengambil data Google Sheets");
-    }
-    return response.text();
-})
-.then(csv => {
+      const match =
+        url.match(/[?&]id=([\w-]+)/) ||
+        url.match(/\/file\/d\/([\w-]+)/) ||
+        url.match(/\/d\/([\w-]+)/);
 
-    // Pisahkan baris
-    const rows = csv.trim().split(/\r?\n/);
-
-    // Parser CSV
-    const parseCSV = (line) => {
-        const regex = /(".*?"|[^",]+)(?=\s*,|\s*$)/g;
-
-        const result = line.match(regex);
-
-        if (!result) {
-            return [];
-        }
-
-        return result.map(item =>
-            item.replace(/^"|"$/g, "").trim()
-        );
-    };
-
-    // Header
-    const headers = parseCSV(rows[0]);
-
-    console.log("Header Google Sheets:", headers);
-
-    // Cari posisi kolom berdasarkan nama
-    const namaIndex = headers.indexOf("Nama Lengkap");
-    const nimIndex = headers.indexOf("STAMBUK/NIM");
-    const angkatanIndex = headers.indexOf("Angkatan");
-    const statusIndex = headers.indexOf("Status");
-    const divisiIndex = headers.indexOf("Divisi");
-    const jabatanIndex = headers.indexOf("Jabatan");
-
-    // Pastikan kolom penting ditemukan
-    if (
-        namaIndex === -1 ||
-        nimIndex === -1 ||
-        angkatanIndex === -1
-    ) {
-        throw new Error(
-            "Kolom Nama Lengkap, STAMBUK/NIM, atau Angkatan tidak ditemukan."
-        );
+      return match
+        ? `https://drive.google.com/thumbnail?id=${match[1]}&sz=w500`
+        : url;
     }
 
-    // Ambil data
-    let data = rows
-        .slice(1)
-        .filter(row => row.trim() !== "")
-        .map(parseCSV);
+    function parseCSV(csv) {
+      const rows = [];
+      let row = [];
+      let cell = "";
+      let quoted = false;
 
-    // Urut berdasarkan NIM
-    data.sort((a, b) => {
-        return (a[nimIndex] || "").localeCompare(
-            b[nimIndex] || ""
-        );
-    });
+      for (let i = 0; i < csv.length; i++) {
+        const char = csv[i];
+        const next = csv[i + 1];
 
-    let html = "";
+        if (char === '"' && quoted && next === '"') {
+          cell += '"';
+          i++;
+        } else if (char === '"') {
+          quoted = !quoted;
+        } else if (char === "," && !quoted) {
+          row.push(cell.trim());
+          cell = "";
+        } else if ((char === "\n" || char === "\r") && !quoted) {
+          if (char === "\r" && next === "\n") i++;
 
-    data.forEach(row => {
+          row.push(cell.trim());
 
-        // Hanya tampilkan angkatan 2023
-        if (
-            (row[angkatanIndex] || "").trim() === "2025"
-        ) {
+          if (row.some(Boolean)) {
+            rows.push(row);
+          }
 
-            html += `
-            <div class="anggota-card">
+          row = [];
+          cell = "";
+        } else {
+          cell += char;
+        }
+      }
 
-                <h3>${row[namaIndex] || ""}</h3>
+      row.push(cell.trim());
 
-                <p>
-                    <strong>${row[nimIndex] || ""}</strong>
-                </p>
+      if (row.some(Boolean)) {
+        rows.push(row);
+      }
 
-                ${
-                    statusIndex !== -1 && row[statusIndex]
-                    ? `<p>Status : ${row[statusIndex]}</p>`
-                    : ""
-                }
+      return rows;
+    }
 
-                ${
-                    divisiIndex !== -1 && row[divisiIndex]
-                    ? `<p>Divisi : ${row[divisiIndex]}</p>`
-                    : ""
-                }
+    function memberCard(member) {
+      const detail = (label, value, className = "") =>
+        value
+          ? `<p class="${className}">${label ? `${label}: ` : ""}${escapeHTML(value)}</p>`
+          : "";
 
-                ${
-                    jabatanIndex !== -1 && row[jabatanIndex]
-                    ? `<p>Jabatan : ${row[jabatanIndex]}</p>`
-                    : ""
-                }
+      const photo = convertDriveUrl(member.foto) || DEFAULT_PHOTO;
 
-            </div>
-            `;
+      return `
+        <article class="anggota-card">
+          <img
+            src="${escapeHTML(photo)}"
+            alt="Foto ${escapeHTML(member.nama)}"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='${DEFAULT_PHOTO}'"
+          >
+
+          <h3>${escapeHTML(member.nama)}</h3>
+          ${detail("", member.nim, "nim")}
+          ${detail("", member.status)}
+          ${detail("", member.divisi)}
+          ${detail("", member.jabatan)}
+        </article>
+      `;
+    }
+
+    async function loadMembers() {
+      const container = document.getElementById("anggota-container");
+
+      try {
+        const response = await fetch(SHEET_URL);
+
+        if (!response.ok) {
+          throw new Error("Gagal mengambil data Google Sheets.");
         }
 
-    });
+        const rows = parseCSV(await response.text());
 
-    document.getElementById("anggota-container").innerHTML = html;
+        if (!rows.length) {
+          throw new Error("Data Google Sheets kosong.");
+        }
 
-})
-.catch(error => {
+        const headers = rows[0].map(clean);
+        const indexOf = name => headers.indexOf(name);
 
-    console.error("Error:", error);
+        const required = [
+          "Nama Lengkap",
+          "Kategori",
+          "STAMBUK / NIM",
+          "Angkatan",
+          "Status",
+          "Divisi",
+          "Jabatan Pengurus Inti",
+          "Jabatan Pengurus",
+          "Potret / Foto Anda"
+        ];
 
-    document.getElementById("anggota-container").innerHTML = `
-        <p style="color:red; text-align:center;">
-            Data anggota tidak dapat dimuat.
-        </p>
-    `;
+        const missing = required.filter(name => indexOf(name) === -1);
 
-});
-</script>
+        if (missing.length) {
+          throw new Error(`Kolom tidak ditemukan: ${missing.join(", ")}.`);
+        }
 
+        const get = (row, name) => clean(row[indexOf(name)]);
+
+        const members = rows
+          .slice(1)
+          .filter(row => get(row, "Angkatan") === ANGKATAN_TARGET)
+          .map(row => ({
+            nama: get(row, "Nama Lengkap"),
+            nim: get(row, "STAMBUK / NIM"),
+            status: get(row, "Status"),
+            divisi: get(row, "Divisi"),
+            jabatan:
+              get(row, "Jabatan Pengurus Inti") ||
+              get(row, "Jabatan Pengurus"),
+            foto: get(row, "Potret / Foto Anda")
+          }))
+          .filter(member => member.nama)
+          .sort((a, b) =>
+            a.nim.localeCompare(b.nim, "id", {
+              numeric: true,
+              sensitivity: "base"
+            })
+          );
+
+        container.innerHTML = members.length
+          ? members.map(memberCard).join("")
+          : `<p class="message">Belum ada data anggota Angkatan ${ANGKATAN_TARGET}.</p>`;
+      } catch (error) {
+        console.error(error);
+
+        container.innerHTML =
+          `<p class="message">Data anggota belum dapat dimuat. Silakan coba lagi nanti.</p>`;
+      }
+    }
+
+    loadMembers();
+  </script>
 </body>
 </html>
